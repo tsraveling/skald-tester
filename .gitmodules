@@ -1,0 +1,3 @@
+[submodule "lib/skald-godot"]
+	path = lib/skald-godot
+	url = https://github.com/tsraveling/skald-godot.git
