@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdu5r3wpik82c"]
+[gd_scene load_steps=4 format=3 uid="uid://cdu5r3wpik82c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cu5ch"]
 [ext_resource type="Script" path="res://FileMenu.gd" id="2_gn3vy"]
+[ext_resource type="PackedScene" uid="uid://c1607r7tab3gh" path="res://game/skald_game.tscn" id="3_up4sp"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -14,7 +15,7 @@ script = ExtResource("1_cu5ch")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 initial_position = 1
-title = "Open a compiled Skald file"
+title = "Open a File"
 size = Vector2i(700, 400)
 current_screen = -2
 ok_button_text = "Open"
@@ -31,9 +32,13 @@ grow_horizontal = 2
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 
 [node name="MenuBar" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -55,8 +60,9 @@ popup/item_1/text = "Exit"
 popup/item_1/id = 1
 script = ExtResource("2_gn3vy")
 
-[node name="SkaldGame" type="MarginContainer" parent="VBoxContainer"]
+[node name="SkaldGame" parent="VBoxContainer" instance=ExtResource("3_up4sp")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="file_selected" from="FileDialog" to="." method="_on_select_file"]
 [connection signal="did_click_load" from="VBoxContainer/MenuBar/HBoxContainer/MenuButton" to="." method="_on_menu_load"]

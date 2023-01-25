@@ -49,7 +49,9 @@ func _on_select_choice(index):
 
 ## Receives choice update signal from event bus
 func _receive_response(response: Skald.SkaldResponse):
-	if response.choices:
+	if response.end_with:
+		_remove_children()
+	elif response.choices:
 		_layout_choice_buttons(response.choices)
 	else:
 		_layout_continue_button()

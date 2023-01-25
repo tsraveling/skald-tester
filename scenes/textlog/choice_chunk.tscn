@@ -1,18 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://w21ys35yhfh0"]
 
-[ext_resource path="res://scenes/textlog/choice_chunk.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/FontRosarivo.tres" type="FontFile" id=2]
+[ext_resource type="Script" path="res://scenes/textlog/choice_chunk.gd" id="1"]
 
 [node name="ChoiceLog" type="RichTextLabel"]
-modulate = Color( 0.270588, 0.270588, 0.270588, 1 )
+modulate = Color(0.270588, 0.270588, 0.270588, 1)
 offset_left = 74.0
 offset_right = 659.0
 offset_bottom = 120.0
 size_flags_horizontal = 3
-custom_fonts/bold_font = ExtResource( 2 )
-custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
-text = "[right]Lorem ipsum dolor sit amet.[/right]"
 text = "Lorem ipsum dolor sit amet."
 fit_content_height = true
-script = ExtResource( 1 )
+script = ExtResource("1")

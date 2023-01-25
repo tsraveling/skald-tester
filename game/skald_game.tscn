@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1607r7tab3gh"]
+
+[ext_resource type="Script" path="res://game/skald_game.gd" id="1_bqyfe"]
+[ext_resource type="Script" path="res://scenes/textlog/text_scroller.gd" id="2_4g6rl"]
+[ext_resource type="Script" path="res://scenes/choice_button_list.gd" id="3_i4xol"]
+[ext_resource type="PackedScene" uid="uid://d3iajax2rqjj3" path="res://scenes/textlog/text_chunk.tscn" id="3_pov5a"]
+[ext_resource type="PackedScene" uid="uid://w21ys35yhfh0" path="res://scenes/textlog/choice_chunk.tscn" id="4_ibqf7"]
+[ext_resource type="Script" path="res://game/StateLabel.gd" id="6_d7xki"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkaldGame" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_bqyfe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkaldGame"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkaldGame/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextScroller" type="ScrollContainer" parent="SkaldGame/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_4g6rl")
+
+[node name="MarginContainer" type="MarginContainer" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextList" type="VBoxContainer" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller/MarginContainer"]
+layout_mode = 2
+
+[node name="TextChunk" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller/MarginContainer/TextList" instance=ExtResource("3_pov5a")]
+layout_mode = 2
+
+[node name="TextChunk2" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller/MarginContainer/TextList" instance=ExtResource("3_pov5a")]
+layout_mode = 2
+
+[node name="TextChunk3" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller/MarginContainer/TextList" instance=ExtResource("3_pov5a")]
+layout_mode = 2
+
+[node name="ChoiceLog" parent="SkaldGame/HBoxContainer/VBoxContainer/TextScroller/MarginContainer/TextList" instance=ExtResource("4_ibqf7")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SkaldGame/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ChoiceList" type="VBoxContainer" parent="SkaldGame/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("3_i4xol")
+
+[node name="MarginContainer" type="MarginContainer" parent="SkaldGame/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="ColorRect" type="ColorRect" parent="SkaldGame/HBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.733333, 0.733333, 0.733333, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="SkaldGame/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="StateLabel" type="Label" parent="SkaldGame/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+script = ExtResource("6_d7xki")

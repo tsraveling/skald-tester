@@ -1,8 +1,15 @@
-extends HBoxContainer
+extends VBoxContainer
 
-@export var body = "Lorem ipsum"
+var content: Skald.SkaldContent
 
+@onready var text_body = $MarginContainer/TextBody
+@onready var attribution_label = $Attribution
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TextBody.text = body
+	print(">>> text_chunk start")
+	if content == null:
+		print(">>> no content")
+		return
+	attribution_label.text = content.attribution_tag
+	text_body.text = content.content
