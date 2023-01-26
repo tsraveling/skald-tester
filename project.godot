@@ -24,4 +24,7 @@ GameEngine="*res://autoload/GameEngine.gd"
 
 window/size/viewport_width=2880
 window/size/viewport_height=1620
-window/stretch/scale=2.0
+
+[editor]
+
+export/convert_text_resources_to_binary=true
